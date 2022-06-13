@@ -1,0 +1,199 @@
+body{
+  background:  #eeeeee ;     /*Color de fondo de la pagina*/
+  font-family: Verdana, Arial, Helvetica, sans-serif; /*Tipo de letra del cuerpo*/
+  font-size: 10pt; 
+  font-weight: bold;
+}
+.fondo{
+  background-image: url(../img/fondo_pag.png);
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+* {
+    margin:1px;
+    padding:1px;
+     border-radius: 13px 13px 13px 13px;
+    /*-moz-border-radius: 13px 13px 13px 13px;*/
+    -webkit-border-radius: 13px 13px 13px 13px;
+   
+  }
+      
+ul, ol {
+        list-style:none;
+
+      }
+      
+.nav > li {
+        float:left;
+
+      }
+      
+.nav li a {
+        background-color:#CB4335;
+        color:#fff;
+        text-decoration:none;
+        padding:10px 12px;
+        display:block;
+        cursor: pointer;  /*Convierte al cursor en una mano al pasar por el enlace del Boton Menú principal*/
+        border: 1px solid #000000;
+      }
+      
+.nav li a:hover {
+        background-color:#fff;
+        color: #000;
+      }
+      
+.nav li ul {
+        display:none;
+        position:absolute;
+        min-width:140px;
+      }
+      
+.nav li:hover > ul {
+        display:block;
+      }
+      
+.nav li ul li {
+        position:relative;
+      }
+      
+  .nav li ul li ul {
+        right:-140px;
+        top:0px;
+      }
+
+  #columna {
+  margin-right: 400px;
+  float: right;
+  width: 33%;
+  text-align: justify;
+  color: #000;  /*Color de la letra del formulario*/
+
+}
+#subtitulo2 { /*Caracteríticas de los subtítulos por ej Formulario 1*/
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 25px;
+  color: #000;
+}
+.logo_sombra{
+  box-shadow: 5px 5px 5px black;
+}
+.boton{
+  border-radius: 100px;
+  font-weight: bold;
+  width: 80px;
+  height: 30px;
+  background-color: #008f39;
+  cursor: pointer;
+}
+.boton:hover{
+    color: #008f39;
+    background-color: #ffffff;
+  }
+
+/*#borde_tabla{
+  border-style: groove;
+  background: #CB4335;
+  border-width: 10px;
+  border-radius: 2em;
+ }*/
+h3{
+  color: #ff0000;
+  font-size: 20pt;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+}
+h4{
+  color: #5e544f;
+  font-size: 10pt;
+  text-align: center;
+  /*text-shadow: 2px 2px 2px black;*/
+}
+h1{
+  color: #008f39;
+  font-size: 20pt;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+}
+h2{
+  color: #008f39;
+  font-size: 35pt;
+  text-align: center;
+  text-shadow: 2px 2px 2px black;
+}
+.centrar{
+  padding: 50px;
+}
+.obligatorio{
+  color: red;
+}
+
+/*input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid red;
+  background-color:transparent;
+}*/
+
+.listado{
+  background-color: #dddddd;
+  font-size: 8pt;
+}
+
+a{
+  color: #008000;
+  font-size: 8pt;
+}
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+a:hover{
+  color: #ff0000;
+}
+
+.zoom{
+    transition: 1s ease;
+    -moz-transition: 1s ease; /* Firefox */
+    -webkit-transition: 1s ease; /* Chrome - Safari */
+    -o-transition: 1s ease; /* Opera */
+  }
+  .zoom:hover{
+    transform : scale(1.2);
+    -moz-transform : scale(1.2); /* Firefox */
+    -webkit-transform : scale(1.2); /* Chrome - Safari */
+    -o-transform : scale(1.2); /* Opera */
+    -ms-transform : scale(1.2); /* IE9 */
+  }
+/*table tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+table tr:nth-child(even) {
+    background-color: #fff;
+}*/
+.zoom1{
+    transition: 1s ease;
+    -moz-transition: 1s ease; /* Firefox */
+    -webkit-transition: 1s ease; /* Chrome - Safari */
+    -o-transition: 1s ease; /* Opera */
+  }
+  .zoom1:hover{
+    transform : scale(1.2);
+    -moz-transform : scale(1.2); /* Firefox */
+    -webkit-transform : scale(1.2); /* Chrome - Safari */
+    -o-transform : scale(1.2); /* Opera */
+    -ms-transform : scale(1.2); /* IE9 */
+    color: #ff0000;
+  }
+.paginacion1{
+  font-family: Verdana;
+  font-size: 9px;
+}
+.paginacion2{
+  color: #FB992F;
+  font-size: 12px;
+}

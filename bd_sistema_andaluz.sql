@@ -1,0 +1,1194 @@
+CREATE DATABASE bd_sistema_andaluz;
+CREATE TABLE empresa(
+	id_empresa INT NOT NULL AUTO_INCREMENT,
+	nombre VARCHAR(25) NOT NULL,
+	direccion VARCHAR(50) NOT NULL,
+	telefono1 VARCHAR(20),
+	telefono2 VARCHAR(20),
+	logo_empresa VARCHAR(60),
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_empresa)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO empresa VALUES(1, 'RADIO MOVIL ANDALUZ','AVENIDA CASTELLANOS FRENTE A DIPROVE','66-63010','66-33010', 'logo_andaluz.png', now(), now(), 1, 1);
+
+CREATE TABLE socios(
+	id_socio INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	ci_socio VARCHAR(15) NOT NULL,
+	nombres_socio VARCHAR(25) NOT NULL,
+	apellidos_socio VARCHAR(25) NOT NULL,
+	direc_socio VARCHAR(50) NOT NULL,
+	fecha_alta DATE NOT NULL,
+	telefono_socio VARCHAR(20) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_socio),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO socios VALUES(1, 1, '1265498', 'NOMBRES SOCIO 1', 'APELLIDOS SOCIO 1', 'DIRECCION SOCIO 1','1980-04-1','73256988', now(), now(), 1, 1);
+INSERT INTO socios VALUES(2, 1, '1265498', 'NOMBRES SOCIO 2', 'APELLIDOS SOCIO 2', 'DIRECCION SOCIO 2','1980-04-1','71250499', now(), now(), 1, 1);
+INSERT INTO socios VALUES(3, 1, '5043567', 'NOMBRES SOCIO 3', 'APELLIDOS SOCIO 3', 'DIRECCION SOCIO 3','1980-04-1','71020548', now(), now(), 1, 1);
+INSERT INTO socios VALUES(4, 1, '8746523', 'NOMBRES SOCIO 4', 'APELLIDOS SOCIO 4', 'DIRECCION SOCIO 4','1980-04-1','73265000', now(), now(), 1, 1);
+INSERT INTO socios VALUES(5, 1, '4853158', 'NOMBRES SOCIO 5', 'APELLIDOS SOCIO 5', 'DIRECCION SOCIO 5','1980-04-1','75558963', now(), now(), 1, 1);
+INSERT INTO socios VALUES(6, 1, '3219785', 'NOMBRES SOCIO 6', 'APELLIDOS SOCIO 6', 'DIRECCION SOCIO 6','1980-04-1','72323580', now(), now(), 1, 1);
+INSERT INTO socios VALUES(7, 1, '1254736', 'NOMBRES SOCIO 7', 'APELLIDOS SOCIO 7', 'DIRECCION SOCIO 7','1980-04-1','71224589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(8, 1, '1238964', 'NOMBRES SOCIO 8', 'APELLIDOS SOCIO 8', 'DIRECCION SOCIO 8','1980-04-1','69895485', now(), now(), 1, 1);
+INSERT INTO socios VALUES(9, 1, '5896458', 'NOMBRES SOCIO 9', 'APELLIDOS SOCIO 9', 'DIRECCION SOCIO 9','1980-04-1','71245897', now(), now(), 1, 1);
+INSERT INTO socios VALUES(10, 1, '3659824', 'NOMBRES SOCIO 10', 'APELLIDOS SOCIO 10', 'DIRECCION SOCIO 10','1980-04-1','62589489', now(), now(), 1, 1);
+INSERT INTO socios VALUES(11, 1, '3659824', 'NOMBRES SOCIO 10', 'APELLIDOS SOCIO 10', 'DIRECCION SOCIO 10','1980-04-1','72315898', now(), now(), 1, 1);
+INSERT INTO socios VALUES(12, 1, '4589379', 'NOMBRES SOCIO 11', 'APELLIDOS SOCIO 11', 'DIRECCION SOCIO 11','1980-04-2','74258304', now(), now(), 1, 1);
+INSERT INTO socios VALUES(13, 1, '2254836', 'NOMBRES SOCIO 12', 'APELLIDOS SOCIO 12', 'DIRECCION SOCIO 12','1980-04-2','71245890', now(), now(), 1, 1);
+INSERT INTO socios VALUES(14, 1, '8915547', 'NOMBRES SOCIO 13', 'APELLIDOS SOCIO 13', 'DIRECCION SOCIO 13','1980-04-2','76455899', now(), now(), 1, 1);
+INSERT INTO socios VALUES(15, 1, '3364589', 'NOMBRES SOCIO 14', 'APELLIDOS SOCIO 14', 'DIRECCION SOCIO 14','1980-04-2','66325917', now(), now(), 1, 1);
+INSERT INTO socios VALUES(16, 1, '1257934', 'NOMBRES SOCIO 15', 'APELLIDOS SOCIO 15', 'DIRECCION SOCIO 15','1980-04-2','68978258', now(), now(), 1, 1);
+INSERT INTO socios VALUES(17, 1, '3365411', 'NOMBRES SOCIO 16', 'APELLIDOS SOCIO 16', 'DIRECCION SOCIO 16','1980-04-2','75214896', now(), now(), 1, 1);
+INSERT INTO socios VALUES(18, 1, '2567935', 'NOMBRES SOCIO 17', 'APELLIDOS SOCIO 17', 'DIRECCION SOCIO 17','1980-04-2','71254869', now(), now(), 1, 1);
+INSERT INTO socios VALUES(19, 1, '5644896', 'NOMBRES SOCIO 18', 'APELLIDOS SOCIO 18', 'DIRECCION SOCIO 18','1980-04-2','63235648', now(), now(), 1, 1);
+INSERT INTO socios VALUES(20, 1, '2259348', 'NOMBRES SOCIO 19', 'APELLIDOS SOCIO 19', 'DIRECCION SOCIO 19','1980-04-2','68931208', now(), now(), 1, 1);
+INSERT INTO socios VALUES(21, 1, '5865458', 'NOMBRES SOCIO 20', 'APELLIDOS SOCIO 20', 'DIRECCION SOCIO 20','1980-04-2','74145896', now(), now(), 1, 1);
+INSERT INTO socios VALUES(22, 1, '3365090', 'NOMBRES SOCIO 21', 'APELLIDOS SOCIO 21', 'DIRECCION SOCIO 21','1980-04-3','75489348', now(), now(), 1, 1);
+INSERT INTO socios VALUES(23, 1, '1024839', 'NOMBRES SOCIO 22', 'APELLIDOS SOCIO 22', 'DIRECCION SOCIO 22','1980-04-3','76589633', now(), now(), 1, 1);
+INSERT INTO socios VALUES(24, 1, '8964685', 'NOMBRES SOCIO 23', 'APELLIDOS SOCIO 23', 'DIRECCION SOCIO 23','1980-04-3','63259963', now(), now(), 1, 1);
+INSERT INTO socios VALUES(25, 1, '9645836', 'NOMBRES SOCIO 24', 'APELLIDOS SOCIO 24', 'DIRECCION SOCIO 24','1980-04-3','72589634', now(), now(), 1, 1);
+INSERT INTO socios VALUES(26, 1, '2563495', 'NOMBRES SOCIO 25', 'APELLIDOS SOCIO 25', 'DIRECCION SOCIO 25','1980-04-3','70110230', now(), now(), 1, 1);
+INSERT INTO socios VALUES(27, 1, '5566989', 'NOMBRES SOCIO 26', 'APELLIDOS SOCIO 26', 'DIRECCION SOCIO 26','1980-04-3','60210380', now(), now(), 1, 1);
+INSERT INTO socios VALUES(28, 1, '1548585', 'NOMBRES SOCIO 27', 'APELLIDOS SOCIO 27', 'DIRECCION SOCIO 27','1980-04-3','75233964', now(), now(), 1, 1);
+INSERT INTO socios VALUES(29, 1, '6653057', 'NOMBRES SOCIO 28', 'APELLIDOS SOCIO 28', 'DIRECCION SOCIO 28','1980-04-3','61236589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(30, 1, '3054736', 'NOMBRES SOCIO 29', 'APELLIDOS SOCIO 29', 'DIRECCION SOCIO 29','1980-04-3','72125001', now(), now(), 1, 1);
+INSERT INTO socios VALUES(31, 1, '7046985', 'NOMBRES SOCIO 30', 'APELLIDOS SOCIO 30', 'DIRECCION SOCIO 30','1980-04-3','62301258', now(), now(), 1, 1);
+INSERT INTO socios VALUES(32, 1, '6580404', 'NOMBRES SOCIO 31', 'APELLIDOS SOCIO 31', 'DIRECCION SOCIO 31','1980-04-4','71203659', now(), now(), 1, 1);
+INSERT INTO socios VALUES(33, 1, '3608967', 'NOMBRES SOCIO 32', 'APELLIDOS SOCIO 32', 'DIRECCION SOCIO 32','1980-04-4','63231036', now(), now(), 1, 1);
+INSERT INTO socios VALUES(34, 1, '9873085', 'NOMBRES SOCIO 33', 'APELLIDOS SOCIO 33', 'DIRECCION SOCIO 33','1980-04-4','71245896', now(), now(), 1, 1);
+INSERT INTO socios VALUES(35, 1, '3123589', 'NOMBRES SOCIO 34', 'APELLIDOS SOCIO 34', 'DIRECCION SOCIO 34','1980-04-4','72124589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(36, 1, '5050630', 'NOMBRES SOCIO 35', 'APELLIDOS SOCIO 35', 'DIRECCION SOCIO 35','1980-04-4','75321369', now(), now(), 1, 1);
+INSERT INTO socios VALUES(37, 1, '5690780', 'NOMBRES SOCIO 36', 'APELLIDOS SOCIO 36', 'DIRECCION SOCIO 36','1980-04-4','63231589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(38, 1, '3681230', 'NOMBRES SOCIO 37', 'APELLIDOS SOCIO 37', 'DIRECCION SOCIO 37','1980-04-4','72536989', now(), now(), 1, 1);
+INSERT INTO socios VALUES(39, 1, '2368128', 'NOMBRES SOCIO 38', 'APELLIDOS SOCIO 38', 'DIRECCION SOCIO 38','1980-04-4','63636485', now(), now(), 1, 1);
+INSERT INTO socios VALUES(40, 1, '1010809', 'NOMBRES SOCIO 39', 'APELLIDOS SOCIO 39', 'DIRECCION SOCIO 39','1980-04-4','70703259', now(), now(), 1, 1);
+INSERT INTO socios VALUES(41, 1, '3808700', 'NOMBRES SOCIO 40', 'APELLIDOS SOCIO 40', 'DIRECCION SOCIO 40','1980-04-4','72564893', now(), now(), 1, 1);
+INSERT INTO socios VALUES(42, 1, '6252030', 'NOMBRES SOCIO 41', 'APELLIDOS SOCIO 41', 'DIRECCION SOCIO 41','1980-04-4','75312589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(43, 1, '2020640', 'NOMBRES SOCIO 42', 'APELLIDOS SOCIO 42', 'DIRECCION SOCIO 42','1980-04-5','63231589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(44, 1, '3058964', 'NOMBRES SOCIO 43', 'APELLIDOS SOCIO 43', 'DIRECCION SOCIO 43','1980-04-5','74578903', now(), now(), 1, 1);
+INSERT INTO socios VALUES(45, 1, '3592045', 'NOMBRES SOCIO 44', 'APELLIDOS SOCIO 44', 'DIRECCION SOCIO 44','1980-04-5','63368891', now(), now(), 1, 1);
+INSERT INTO socios VALUES(46, 1, '1024580', 'NOMBRES SOCIO 45', 'APELLIDOS SOCIO 45', 'DIRECCION SOCIO 45','1980-04-5','66312589', now(), now(), 1, 1);
+INSERT INTO socios VALUES(47, 1, '2054863', 'NOMBRES SOCIO 46', 'APELLIDOS SOCIO 46', 'DIRECCION SOCIO 46','1980-04-5','66893147', now(), now(), 1, 1);
+INSERT INTO socios VALUES(48, 1, '3645809', 'NOMBRES SOCIO 47', 'APELLIDOS SOCIO 47', 'DIRECCION SOCIO 47','1980-04-5','76767428', now(), now(), 1, 1);
+INSERT INTO socios VALUES(49, 1, '7082254', 'NOMBRES SOCIO 48', 'APELLIDOS SOCIO 48', 'DIRECCION SOCIO 48','1980-04-5','60604853', now(), now(), 1, 1);
+INSERT INTO socios VALUES(50, 1, '6060452', 'NOMBRES SOCIO 49', 'APELLIDOS SOCIO 49', 'DIRECCION SOCIO 49','1980-04-5','79874587', now(), now(), 1, 1);
+
+CREATE TABLE clientes(
+	id_cliente INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	nombres VARCHAR(25) NOT NULL,
+	apellidos VARCHAR(25) NOT NULL,
+	direc_cliente VARCHAR(50) NOT NULL,
+	telefono VARCHAR(20) NOT NULL,
+	recomendaciones VARCHAR (50) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_cliente),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO clientes VALUES(1, 1, 'NOMBRES CLIENTE 1', 'APELLIDOS CLIENTE 1', 'DIRECCION CLIENTE 1', '66-45673', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(2, 1, 'NOMBRES CLIENTE 2', 'APELLIDOS CLIENTE 2', 'DIRECCION CLIENTE 2', '66-22345', 'NO EVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(3, 1, 'NOMBRES CLIENTE 3', 'APELLIDOS CLIENTE 3', 'DIRECCION CLIENTE 3', '66-32465', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(4, 1, 'NOMBRES CLIENTE 4', 'APELLIDOS CLIENTE 4', 'DIRECCION CLIENTE 4', '66-09568', 'NO ENVIAR AL MOVIL 45', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(5, 1, 'NOMBRES CLIENTE 5', 'APELLIDOS CLIENTE 5', 'DIRECCION CLIENTE 5', '66-63542', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(6, 1, 'NOMBRES CLIENTE 6', 'APELLIDOS CLIENTE 6', 'DIRECCION CLIENTE 6', '66-84653', 'NO ENVIAR AUTOS CON VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(7, 1, 'NOMBRES CLIENTE 7', 'APELLIDOS CLIENTE 7', 'DIRECCION CLIENTE 7', '66-35428', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(8, 1, 'NOMBRES CLIENTE 8', 'APELLIDOS CLIENTE 8', 'DIRECCION CLIENTE 8', '66-23467', 'NO ENVIAR AUTOS CONO VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(9, 1, 'NOMBRES CLIENTE 9', 'APELLIDOS CLIENTE 9', 'DIRECCION CLIENTE 9', '66-34578', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(10, 1, 'NOMBRES CLIENTE 10', 'APELLIDOS CLIENTE 10', 'DIRECCION CLIENTE 10', '66-98264', 'NO ENVIAR AL MOVIL 66', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(11, 1, 'NOMBRES CLIENTE 11', 'APELLIDOS CLIENTE 11', 'DIRECCION CLIENTE 11', '66-45896', 'NO ENVIAR AL MOVIL 100', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(12, 1, 'NOMBRES CLIENTE 12', 'APELLIDOS CLIENTE 12', 'DIRECCION CLIENTE 12', '66-34566', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(13, 1, 'NOMBRES CLIENTE 13', 'APELLIDOS CLIENTE 13', 'DIRECCION CLIENTE 13', '66-32458', 'NO TOCAR BOCINA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(14, 1, 'NOMBRES CLIENTE 14', 'APELLIDOS CLIENTE 14', 'DIRECCION CLIENTE 14', '66-34589', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(15, 1, 'NOMBRES CLIENTE 15', 'APELLIDOS CLIENTE 15', 'DIRECCION CLIENTE 15', '66-68547', 'NO TOCAR BOCINA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(16, 1, 'NOMBRES CLIENTE 16', 'APELLIDOS CLIENTE 16', 'DIRECCION CLIENTE 16', '66-53159', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(17, 1, 'NOMBRES CLIENTE 17', 'APELLIDOS CLIENTE 17', 'DIRECCION CLIENTE 17', '66-39668', 'NO ENVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(18, 1, 'NOMBRES CLIENTE 18', 'APELLIDOS CLIENTE 18', 'DIRECCION CLIENTE 18', '66-55782', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(19, 1, 'NOMBRES CLIENTE 19', 'APELLIDOS CLIENTE 19', 'DIRECCION CLIENTE 19', '66-345548', 'NO ENVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(20, 1, 'NOMBRES CLIENTE 20', 'APELLIDOS CLIENTE 20', 'DIRECCION CLIENTE 20', '66-33658', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(21, 1, 'NOMBRES CLIENTE 21', 'APELLIDOS CLIENTE 21', 'DIRECCION CLIENTE 21', '66-45673', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(22, 1, 'NOMBRES CLIENTE 22', 'APELLIDOS CLIENTE 22', 'DIRECCION CLIENTE 22', '66-22345', 'NO EVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(23, 1, 'NOMBRES CLIENTE 23', 'APELLIDOS CLIENTE 23', 'DIRECCION CLIENTE 23', '66-32465', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(24, 1, 'NOMBRES CLIENTE 24', 'APELLIDOS CLIENTE 24', 'DIRECCION CLIENTE 24', '66-09568', 'NO ENVIAR AL MOVIL 45', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(25, 1, 'NOMBRES CLIENTE 25', 'APELLIDOS CLIENTE 25', 'DIRECCION CLIENTE 25', '66-63542', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(26, 1, 'NOMBRES CLIENTE 26', 'APELLIDOS CLIENTE 26', 'DIRECCION CLIENTE 26', '66-84653', 'NO ENVIAR AUTOS CON VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(27, 1, 'NOMBRES CLIENTE 27', 'APELLIDOS CLIENTE 27', 'DIRECCION CLIENTE 27', '66-35428', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(28, 1, 'NOMBRES CLIENTE 28', 'APELLIDOS CLIENTE 28', 'DIRECCION CLIENTE 28', '66-23467', 'NO ENVIAR AUTOS CONO VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(29, 1, 'NOMBRES CLIENTE 29', 'APELLIDOS CLIENTE 29', 'DIRECCION CLIENTE 29', '66-34578', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(30, 1, 'NOMBRES CLIENTE 30', 'APELLIDOS CLIENTE 30', 'DIRECCION CLIENTE 30', '66-98264', 'NO ENVIAR AL MOVIL 66', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(31, 1, 'NOMBRES CLIENTE 31', 'APELLIDOS CLIENTE 31', 'DIRECCION CLIENTE 31', '66-45896', 'NO ENVIAR AL MOVIL 100', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(32, 1, 'NOMBRES CLIENTE 32', 'APELLIDOS CLIENTE 32', 'DIRECCION CLIENTE 32', '66-34566', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(33, 1, 'NOMBRES CLIENTE 33', 'APELLIDOS CLIENTE 33', 'DIRECCION CLIENTE 33', '66-32458', 'NO TOCAR BOCINA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(34, 1, 'NOMBRES CLIENTE 34', 'APELLIDOS CLIENTE 34', 'DIRECCION CLIENTE 34', '66-34589', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(35, 1, 'NOMBRES CLIENTE 35', 'APELLIDOS CLIENTE 35', 'DIRECCION CLIENTE 35', '66-68547', 'NO TOCAR BOCINA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(36, 1, 'NOMBRES CLIENTE 36', 'APELLIDOS CLIENTE 36', 'DIRECCION CLIENTE 36', '66-53159', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(37, 1, 'NOMBRES CLIENTE 37', 'APELLIDOS CLIENTE 37', 'DIRECCION CLIENTE 37', '66-39668', 'NO ENVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(38, 1, 'NOMBRES CLIENTE 38', 'APELLIDOS CLIENTE 38', 'DIRECCION CLIENTE 38', '66-55782', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(39, 1, 'NOMBRES CLIENTE 39', 'APELLIDOS CLIENTE 39', 'DIRECCION CLIENTE 39', '66-345548', 'NO ENVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(40, 1, 'NOMBRES CLIENTE 40', 'APELLIDOS CLIENTE 40', 'DIRECCION CLIENTE 40', '66-33658', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(41, 1, 'NOMBRES CLIENTE 41', 'APELLIDOS CLIENTE 41', 'DIRECCION CLIENTE 41', '66-45673', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(42, 1, 'NOMBRES CLIENTE 42', 'APELLIDOS CLIENTE 42', 'DIRECCION CLIENTE 42', '66-22345', 'NO EVIAR AUTOS VIEJOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(43, 1, 'NOMBRES CLIENTE 43', 'APELLIDOS CLIENTE 43', 'DIRECCION CLIENTE 43', '66-32465', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(44, 1, 'NOMBRES CLIENTE 44', 'APELLIDOS CLIENTE 44', 'DIRECCION CLIENTE 44', '66-09568', 'NO ENVIAR AL MOVIL 45', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(45, 1, 'NOMBRES CLIENTE 45', 'APELLIDOS CLIENTE 45', 'DIRECCION CLIENTE 45', '66-63542', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(46, 1, 'NOMBRES CLIENTE 46', 'APELLIDOS CLIENTE 46', 'DIRECCION CLIENTE 46', '66-84653', 'NO ENVIAR AUTOS CON VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(47, 1, 'NOMBRES CLIENTE 47', 'APELLIDOS CLIENTE 47', 'DIRECCION CLIENTE 47', '66-35428', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(48, 1, 'NOMBRES CLIENTE 48', 'APELLIDOS CLIENTE 48', 'DIRECCION CLIENTE 48', '66-23467', 'NO ENVIAR AUTOS CONO VIDRIOS RAJADOS', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(49, 1, 'NOMBRES CLIENTE 49', 'APELLIDOS CLIENTE 49', 'DIRECCION CLIENTE 49', '66-34578', 'NINGUNA', now(), now(), 1, 1);
+INSERT INTO clientes VALUES(50, 1, 'NOMBRES CLIENTE 50', 'APELLIDOS CLIENTE 50', 'DIRECCION CLIENTE 50', '66-98264', 'NO ENVIAR AL MOVIL 66', now(), now(), 1, 1);
+
+CREATE TABLE telefonistas_operadoras(
+	id_telefonista_operadora INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	nombres VARCHAR(25) NOT NULL,
+	apellidos VARCHAR(25) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_telefonista_operadora),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO telefonistas_operadoras VALUES(1, 1, 'JULIA', 'TORRES', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(2, 1, 'MIRTHA', 'VERA', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(3, 1, 'MARIA', 'ALTAMIRANO', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(4, 1, 'SILVIA', 'SEGOVIA', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(5, 1, 'JUANA ', 'AYAVIRI', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(6, 1, 'ALICIA', 'MENDOZA', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(7, 1, 'LILIAN', 'ROJAS', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(8, 1, 'PAOLA', 'SEGOVIA', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(9, 1, 'ANA', 'VERA', now(), now(), 1, 1);
+INSERT INTO telefonistas_operadoras VALUES(10, 1, 'MARCELA', 'MARQUEZ', now(), now(), 1, 1);
+
+CREATE TABLE turnos(
+	id_turno INT NOT NULL AUTO_INCREMENT,
+	id_telefonista_operadora INT NOT NULL,
+	turno VARCHAR(15) NOT NULL,
+	fecha_inicio_tu DATE NOT NULL,
+	fecha_fin_tu DATE NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_turno),
+	FOREIGN KEY(id_telefonista_operadora) REFERENCES telefonistas_operadoras(id_telefonista_operadora) 
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO turnos VALUES(1, 1, 'MAÑANA',"2018-11-01","2019-11-10", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(2, 2, 'MAÑANA',"2018-11-02","2019-11-11", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(3, 3, 'TARDE',"2018-11-03","2019-11-12", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(4, 4, 'TARDE',"2018-11-04","2019-11-13", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(5, 5, 'NOCHE',"2018-11-05","2019-11-14", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(6, 6, 'NOCHE',"2018-11-06","2019-11-15", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(7, 7, 'NOCHE',"2018-11-07","2019-11-16", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(8, 8, 'TRASNOCHE',"2018-11-08","2019-11-17", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(9, 9, 'TRASNOCHE',"2018-11-09","2019-11-18", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(10, 10, 'TRASNOCHE',"2018-11-10","2019-11-19", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(11, 1, 'APOYO NOCHE',"2018-11-07","2019-11-16", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(12, 2, 'APOYO TRASNOCHE',"2018-11-08","2019-11-17", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(13, 3, 'APOYO MAÑANA',"2018-11-09","2019-11-18", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(14, 4, 'APOYO TARDE',"2018-11-10","2019-11-19", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(15, 4, 'APOYO FERIADOS',"2018-11-04","2019-11-13", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(16, 5, 'APOYO FERIADOS',"2018-11-05","2019-11-14", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(17, 6, 'APOYO DOMINGOS',"2018-11-06","2019-11-15", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(18, 7, 'APOYO DOMINGOS',"2018-11-07","2019-11-16", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(19, 8, 'APOYO NOCHE',"2018-11-08","2019-11-17", now(), now(), 1, 1);
+INSERT INTO turnos VALUES(20, 9, 'APOYO MAÑANA',"2018-11-09","2019-11-18", now(), now(), 1, 1);
+
+CREATE TABLE tarif_servicios(
+	id_tar_serv INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	tipo VARCHAR(40) NOT NULL,
+	tarifa FLOAT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_tar_serv),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa)
+)ENGINE=INNODB;
+/*INSECION DE DATOS*/
+INSERT INTO tarif_servicios VALUES(1, 1, 'ENCARGO PUERTA A PUERTA', 6, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(2, 1, 'ENCARGOS ESPECIALES ENTRAR A DEJAR', 6, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(3, 1, 'SERVICIO DE PAQUETE C/DEV', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(4, 1, 'SERVICIO DE GASOLINA', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(5, 1, 'PEDIDOS POR RECOGER MENOR A BS 200', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(6, 1, 'PEDIDOS POR COBRAR MENOR A BS 200', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(7, 1, 'PEDIDOS POR DEVOLVER ENVASE', 15, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(8, 1, 'CAMBIO DE LLANTA', 15, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(9, 1, 'TARIFA POR HORA NO MENOS DE 1 HR', 30, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(10, 1, 'REMOLQUE MINIMO', 50, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(11, 1, 'ENCARGO ESPECIAL ENTRAR A DEJAR', 6, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(12, 1, 'ENCARGOS DE COMPRA POR LISTA', 6, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(13, 1, 'SERVICIO DE PAQUETE C/DEV CIUDAD', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(14, 1, 'SERVICIO DE GASOLINA CIUDAD', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(15, 1, 'PEDIDOS POR LISTA MENOR A BS 200', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(16, 1, 'PEDIDOS POR COBRAR MENOR A BS 200', 10, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(17, 1, 'PEDIDOS POR DEVOLVER ENVASE CIUDAD', 15, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(18, 1, 'CAMBIO DE LLANTA CIUDAD', 15, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(19, 1, 'COMPRA DE PASAJES', 20, now(), now(), 1, 1);
+INSERT INTO tarif_servicios VALUES(20, 1, 'REMOLGUE DE MOTOCICLETA', 50, now(), now(), 1, 1);
+
+CREATE TABLE zonas(
+	id_zona INT NOT NULL AUTO_INCREMENT,
+	zona VARCHAR(50) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_zona)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO zonas VALUES(1, 'ZONA B.AVAROA', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(2, 'ZONA CONTROL VIEJO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(3, 'ZONA SAN MARTIN', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(4, 'ZONA SAN LUIS', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(5, 'ZONA AEROPUERTO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(6, 'ZONA JUAN XXIII', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(7, 'ZONA PALMARCITO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(8, 'ZONAVILLA BUSCH', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(9, 'ZONA BERMEJO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(10, 'ZONA COIMATA/LA VICTORIA', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(11, 'ZONA AL NORTE', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(12, 'ZONA CANASMORO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(13, 'ZONA SAN ANDRES', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(14, 'ZONA AL CHACO', now(), now(), 1, 1);
+INSERT INTO zonas VALUES(15, 'ZONA VILLAZON', now(), now(), 1, 1);
+
+CREATE TABLE tarif_urbano(
+	id_tar_urb INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	id_zona INT NOT NULL,
+	lugar VARCHAR(50) NOT NULL,
+	una_persona FLOAT NOT NULL,
+	dos_personas FLOAT NOT NULL,
+	tres_personas FLOAT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_tar_urb),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa),
+	FOREIGN KEY(id_zona) REFERENCES zonas(id_zona)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO tarif_urbano VALUES(1, 1, 1, "LA FLORIDA", 5, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(2, 1, 1, "LOURDES", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(3, 1, 1, "LOURDES (ESCUELA Y CIABOL)", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(4, 1, 1, "LOURDES (HASTA EL PROYECTO)", 7, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(5, 1, 1, "LOURDES (HASTA EL TANQUE)", 8, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(6, 1, 1, "LITORAL", 8, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(7, 1, 1, "COLON (FINAL HASTA EL PUENTE)", 10, 5, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(8, 1, 1, "ALIMENTOS BALANCEADOS", 5, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(9, 1, 1, "INST. TEC. TARIJA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(10, 1, 1, "MONTE SUD (PARADA D)", 15, 15, 5, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(11, 1, 2, "AEROMODELISMO", 5, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(12, 1, 2, "DEFENSORES DEL CHACO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(13, 1, 2, "LA TORRE PETROLERA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(14, 1, 2, "LAS PASCUAS", 7, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(15, 1, 2, "3 DE MAYO", 8, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(16, 1, 2, "SAN MIGUEL", 8, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(17, 1, 2, "57 VIVIENDAS", 10, 5, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(18, 1, 2, "LUIS PIZARRO", 5, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(19, 1, 2, "15 DE NOVIEMBRE", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(20, 1, 2, "JUAN PABLO II", 15, 15, 5, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(21, 1, 3, "ARANJUEZ", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(22, 1, 3, "HOTEL LOS PARRALES", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(23, 1, 3, "SAN ANTONIO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(24, 1, 3, "MENDEZ ARCOS", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(25, 1, 3, "VIVIENDAS UNIVERSITARIAS", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(26, 1, 3, "VIVIENDAS DEL MAGISTERIO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(27, 1, 3, "SENAC", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(28, 1, 3, "LUIS DE FUENTES", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(29, 1, 3, "ANDALUCIA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(30, 1, 3, "CATEDRAL", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(31, 1, 4, "TEJAR", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(32, 1, 4, "SAN GERONIMO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(33, 1, 4, "VIVIENDAS LAB", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(34, 1, 4, "REGIMIENTO PADILLA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(35, 1, 4, "PETROLERO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(36, 1, 4, "VILLA ANGELICA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(37, 1, 4, "SAN LUIS", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(38, 1, 4, "LAGUNAS DE OXIDACION", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(39, 1, 4, "TEMPORAL", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(40, 1, 4, "TEMPORAL FINAL", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(41, 1, 5, "DENTRO DEL AEROPUERTO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(42, 1, 5, "CASCADA ", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(43, 1, 5, "VIVIENDAS SETAR", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(44, 1, 5, "CARCEL PUBLICA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(45, 1, 5, "PARADA AL CHACO", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(46, 1, 5, "SAN JORGE", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(47, 1, 5, "COCA COLA", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(48, 1, 5, "KOLBERG", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(49, 1, 5, "SAN JORGE II", 6, 4, 4, now(), now(), 1, 1);
+INSERT INTO tarif_urbano VALUES(50, 1, 5, "MORROS BLANCOS", 6, 4, 4, now(), now(), 1, 1);
+
+CREATE TABLE tarif_rural(
+	id_tar_rur INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	id_zona INT NOT NULL,
+	lugar VARCHAR(50) NOT NULL,
+	tarifa_carrera FLOAT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_tar_rur),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa),
+	FOREIGN KEY(id_zona) REFERENCES zonas(id_zona)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO tarif_rural VALUES(1, 1, 9, "LA PINTADA", 25, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(2, 1, 9, "CRUCE AL VALLE", 30, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(3, 1, 9, "ANCON", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(4, 1, 9, "CONCEPCION", 45, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(5, 1, 9, "LA COMPAÑIA", 50, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(6, 1, 9, "SALADILLO", 55, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(7, 1, 9, "RUJERO", 65, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(8, 1, 9, "CHOCLOCA", 80, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(9, 1, 9, "JUNTAS", 100, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(10, 1, 10, "OBRAJES/CADILLAR", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(11, 1, 11, "TUCUMILLAS", 25, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(12, 1, 11, "AGUADA", 30, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(13, 1, 11, "ISCAYACHI", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(14, 1, 11, "PAICHO", 45, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(15, 1, 11, "TOMAYAPU", 50, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(16, 1, 11, "LAS CARRERAS", 55, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(17, 1, 11, "VILLA BECIA", 65, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(18, 1, 11, "SAN PEDRO", 80, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(19, 1, 11, "CANASMORO", 100, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(20, 1, 11, "CULPINA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(21, 1, 11, "SAN LUCAS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(22, 1, 12, "EL RACHO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(23, 1, 12, "RETEN SANTA BARBARA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(24, 1, 12, "SAN LORENZO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(25, 1, 12, "TARIJA CANCHA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(26, 1, 12, "CHORROS DE JURINA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(27, 1, 12, "LAJAS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(28, 1, 12, "PAICHO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(29, 1, 12, "CANASMORO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(30, 1, 13, "SAN ANDRES", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(31, 1, 13, "PINOS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(32, 1, 13, "TOLOMOSITA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(33, 1, 13, "TOLOMOSA NORTE", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(34, 1, 13, "TOLOMOSA SUD", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(35, 1, 13, "CHURQUIS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(36, 1, 13, "BELLA VISTA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(37, 1, 14, "PORTILLO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(38, 1, 14, "LA MATARA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(39, 1, 14, "SANTA ANA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(40, 1, 14, "CALDERAS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(41, 1, 14, "SAN AGUSTIN", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(42, 1, 14, "CARLAZO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(43, 1, 14, "CANALETAS", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(44, 1, 14, "NARVAEZ", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(45, 1, 14, "SAN DIEGO", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(46, 1, 14, "SAN SIMON", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(47, 1, 15, "ISCAYACHI", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(48, 1, 15, "CHOROYA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(49, 1, 15, "COPACABANA", 35, now(), now(), 1, 1);
+INSERT INTO tarif_rural VALUES(50, 1, 15, "YUNCHARA", 35, now(), now(), 1, 1);
+
+CREATE TABLE tipos_moviles(
+	id_tipo_movil INT NOT NULL AUTO_INCREMENT,
+	tipo_movil VARCHAR(25) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_tipo_movil)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO tipos_moviles VALUES(1, "AUTO", now(), now(),1 ,1);
+INSERT INTO tipos_moviles VALUES(2, "VAGONETA", now(), now(), 1,1);
+
+CREATE TABLE moviles(
+	id_movil INT NOT NULL AUTO_INCREMENT,
+	id_socio INT NOT NULL,
+	id_tipo_movil INT NOT NULL,
+	num_movil INT NOT NULL,
+	placa VARCHAR(15) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_movil),
+	FOREIGN KEY(id_socio) REFERENCES socios(id_socio),
+	FOREIGN KEY(id_tipo_movil) REFERENCES tipos_moviles(id_tipo_movil)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO moviles VALUES(1, 1, 1, 1, "2345 ABR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(2, 2, 2, 2, "4325 DHT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(3, 3, 1, 3, "6543 YUE", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(4, 4, 1, 4, "6541 SDR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(5, 5, 1, 5, "9734 KUT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(6, 6, 1, 6, "3412 POT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(7, 7, 1, 7, "5634 GTR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(8, 8, 1, 8, "3416 JTY", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(9, 9, 1, 9, "3451 JUT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(10, 10, 2, 10, "3459 MSI", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(11, 11, 2, 11, "6899 FPT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(12, 12, 2, 12, "8725 MSE", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(13, 13, 2, 13, "2115 ART", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(14, 14, 1, 14, "4539 GNH", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(15, 15, 1, 15, "7588 WJR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(16, 16, 1, 16, "6455 PTO", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(17, 17, 1, 17, "4439 ITU", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(18, 18, 2, 18, "4587 SGT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(19, 19, 2, 19, "7589 VBT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(20, 20, 2, 20, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(21, 21, 2, 21, "6899 FPT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(22, 22, 2, 22, "8725 MSE", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(23, 23, 2, 23, "2115 ART", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(24, 24, 2, 24, "4539 GNH", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(25, 25, 1, 25, "7588 WJR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(26, 26, 1, 26, "6455 PTO", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(27, 27, 1, 27, "4439 ITU", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(28, 28, 2, 28, "4587 SGT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(29, 29, 1, 29, "7589 VBT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(30, 30, 1, 30, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(31, 31, 1, 31, "6899 FPT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(32, 32, 2, 32, "8725 MSE", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(33, 33, 2, 33, "2115 ART", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(34, 34, 1, 34, "4539 GNH", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(35, 35, 1, 35, "7588 WJR", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(36, 36, 1, 36, "6455 PTO", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(37, 37, 1, 37, "4439 ITU", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(38, 38, 2, 38, "4587 SGT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(39, 39, 1, 39, "7589 VBT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(40, 40, 1, 40, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(41, 41, 1, 41, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(42, 42, 1, 42, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(43, 43, 1, 43, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(44, 44, 1, 44, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(45, 45, 1, 45, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(46, 46, 2, 46, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(47, 47, 1, 47, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(48, 48, 1, 48, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(49, 49, 1, 49, "7689 XKT", now(), now(), 1, 1);
+INSERT INTO moviles VALUES(50, 50, 2, 50, "7689 XKT", now(), now(), 1, 1);
+
+CREATE TABLE conductores(
+	id_conductor INT NOT NULL AUTO_INCREMENT,
+	ci VARCHAR(15) NOT NULL,
+	nombres VARCHAR(25) NOT NULL,
+	apellidos VARCHAR(25) NOT NULL,
+	licencia VARCHAR(15) NOT NULL,
+	direccion VARCHAR(50) NOT NULL,
+	telefono VARCHAR(20) NOT  NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_conductor)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO conductores VALUES(1, '2345234', 'NOMBRES CONDUCTOR 1', 'APELLIDOS CONDUCTOR 1', '2345234','DIRECCION CONDUCTOR 1','66-74652', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(2, '6543456', 'NOMBRES CONDUCTOR 2', 'APELLIDOS CONDUCTOR 2', '6543456','DIRECCION CONDUCTOR 2','66-98456', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(3, '7654789', 'NOMBRES CONDUCTOR 3', 'APELLIDOS CONDUCTOR 3', '7654789','DIRECCION CONDUCTOR 3','66-65342', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(4, '5467245', 'NOMBRES CONDUCTOR 4', 'APELLIDOS CONDUCTOR 4', '5467245','DIRECCION CONDUCTOR 4','66-27645', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(5, '6578345', 'NOMBRES CONDUCTOR 5', 'APELLIDOS CONDUCTOR 5', '6578345','DIRECCION CONDUCTOR 5','66-26648', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(6, '6573564', 'NOMBRES CONDUCTOR 6', 'APELLIDOS CONDUCTOR 6', '6573564','DIRECCION CONDUCTOR 6','66-25645', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(7, '8567345', 'NOMBRES CONDUCTOR 7', 'APELLIDOS CONDUCTOR 7', '8567345','DIRECCION CONDUCTOR 7','66-26435', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(8, '6748567', 'NOMBRES CONDUCTOR 8', 'APELLIDOS CONDUCTOR 8', '6748567','DIRECCION CONDUCTOR 8','66-95784', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(9, '2348576', 'NOMBRES CONDUCTOR 9', 'APELLIDOS CONDUCTOR 9', '2348576','DIRECCION CONDUCTOR 9','66-25487', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(10, '6578364', 'NOMBRES CONDUCTOR 10', 'APELLIDOS CONDUCTOR 10', '2345234','DIRECCION CONDUCTOR 10','66-94658', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(11, '5893458', 'NOMBRES CONDUCTOR 11', 'APELLIDOS CONDUCTOR 11', '5893458','DIRECCION CONDUCTOR 11','66-45896', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(12, '6543486', 'NOMBRES CONDUCTOR 12', 'APELLIDOS CONDUCTOR 12', '6543486','DIRECCION CONDUCTOR 12','66-58934', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(13, '7652789', 'NOMBRES CONDUCTOR 13', 'APELLIDOS CONDUCTOR 13', '7652789','DIRECCION CONDUCTOR 13','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(14, '5167245', 'NOMBRES CONDUCTOR 14', 'APELLIDOS CONDUCTOR 14', '5167245','DIRECCION CONDUCTOR 14','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(15, '6378345', 'NOMBRES CONDUCTOR 15', 'APELLIDOS CONDUCTOR 15', '6378345','DIRECCION CONDUCTOR 15','66-12548', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(16, '6673564', 'NOMBRES CONDUCTOR 16', 'APELLIDOS CONDUCTOR 16', '6673564','DIRECCION CONDUCTOR 16','66-35967', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(17, '8569345', 'NOMBRES CONDUCTOR 17', 'APELLIDOS CONDUCTOR 17', '8569345','DIRECCION CONDUCTOR 17','66-45895', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(18, '6788567', 'NOMBRES CONDUCTOR 18', 'APELLIDOS CONDUCTOR 18', '6788567','DIRECCION CONDUCTOR 18','66-43365', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(19, '2342576', 'NOMBRES CONDUCTOR 19', 'APELLIDOS CONDUCTOR 19', '2342576','DIRECCION CONDUCTOR 19','66-36598', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(20, '6518364', 'NOMBRES CONDUCTOR 20', 'APELLIDOS CONDUCTOR 20', '6518364','DIRECCION CONDUCTOR 20','66-42589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(21, '5893458', 'NOMBRES CONDUCTOR 21', 'APELLIDOS CONDUCTOR 21', '5893458','DIRECCION CONDUCTOR 21','66-45896', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(22, '6543486', 'NOMBRES CONDUCTOR 22', 'APELLIDOS CONDUCTOR 22', '6543486','DIRECCION CONDUCTOR 22','66-58934', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(23, '7652789', 'NOMBRES CONDUCTOR 23', 'APELLIDOS CONDUCTOR 23', '7652789','DIRECCION CONDUCTOR 23','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(24, '5167245', 'NOMBRES CONDUCTOR 24', 'APELLIDOS CONDUCTOR 24', '5167245','DIRECCION CONDUCTOR 24','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(25, '6378345', 'NOMBRES CONDUCTOR 25', 'APELLIDOS CONDUCTOR 25', '6378345','DIRECCION CONDUCTOR 25','66-12548', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(26, '6673564', 'NOMBRES CONDUCTOR 26', 'APELLIDOS CONDUCTOR 26', '6673564','DIRECCION CONDUCTOR 26','66-35967', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(27, '8569345', 'NOMBRES CONDUCTOR 27', 'APELLIDOS CONDUCTOR 27', '8569345','DIRECCION CONDUCTOR 27','66-45895', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(28, '6788567', 'NOMBRES CONDUCTOR 28', 'APELLIDOS CONDUCTOR 28', '6788567','DIRECCION CONDUCTOR 28','66-43365', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(29, '2342576', 'NOMBRES CONDUCTOR 29', 'APELLIDOS CONDUCTOR 29', '2342576','DIRECCION CONDUCTOR 29','66-36598', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(30, '6518364', 'NOMBRES CONDUCTOR 30', 'APELLIDOS CONDUCTOR 30', '6518364','DIRECCION CONDUCTOR 30','66-42589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(31, '5893458', 'NOMBRES CONDUCTOR 31', 'APELLIDOS CONDUCTOR 31', '5893458','DIRECCION CONDUCTOR 31','66-45896', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(32, '6543486', 'NOMBRES CONDUCTOR 32', 'APELLIDOS CONDUCTOR 32', '6543486','DIRECCION CONDUCTOR 32','66-58934', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(33, '7652789', 'NOMBRES CONDUCTOR 33', 'APELLIDOS CONDUCTOR 33', '7652789','DIRECCION CONDUCTOR 33','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(34, '5167245', 'NOMBRES CONDUCTOR 34', 'APELLIDOS CONDUCTOR 34', '5167245','DIRECCION CONDUCTOR 34','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(35, '6378345', 'NOMBRES CONDUCTOR 35', 'APELLIDOS CONDUCTOR 35', '6378345','DIRECCION CONDUCTOR 35','66-12548', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(36, '6673564', 'NOMBRES CONDUCTOR 36', 'APELLIDOS CONDUCTOR 36', '6673564','DIRECCION CONDUCTOR 36','66-35967', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(37, '8569345', 'NOMBRES CONDUCTOR 37', 'APELLIDOS CONDUCTOR 37', '8569345','DIRECCION CONDUCTOR 37','66-45895', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(38, '6788567', 'NOMBRES CONDUCTOR 38', 'APELLIDOS CONDUCTOR 38', '6788567','DIRECCION CONDUCTOR 38','66-43365', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(39, '2342576', 'NOMBRES CONDUCTOR 39', 'APELLIDOS CONDUCTOR 39', '2342576','DIRECCION CONDUCTOR 39','66-36598', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(40, '6518364', 'NOMBRES CONDUCTOR 40', 'APELLIDOS CONDUCTOR 40', '6518364','DIRECCION CONDUCTOR 40','66-42589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(41, '5893458', 'NOMBRES CONDUCTOR 41', 'APELLIDOS CONDUCTOR 41', '5893458','DIRECCION CONDUCTOR 41','66-45896', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(42, '6543486', 'NOMBRES CONDUCTOR 42', 'APELLIDOS CONDUCTOR 42', '6543486','DIRECCION CONDUCTOR 42','66-58934', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(43, '7652789', 'NOMBRES CONDUCTOR 43', 'APELLIDOS CONDUCTOR 43', '7652789','DIRECCION CONDUCTOR 43','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(44, '5167245', 'NOMBRES CONDUCTOR 44', 'APELLIDOS CONDUCTOR 44', '5167245','DIRECCION CONDUCTOR 44','66-32589', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(45, '6378345', 'NOMBRES CONDUCTOR 45', 'APELLIDOS CONDUCTOR 45', '6378345','DIRECCION CONDUCTOR 45','66-12548', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(46, '6673564', 'NOMBRES CONDUCTOR 46', 'APELLIDOS CONDUCTOR 46', '6673564','DIRECCION CONDUCTOR 46','66-35967', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(47, '8569345', 'NOMBRES CONDUCTOR 47', 'APELLIDOS CONDUCTOR 47', '8569345','DIRECCION CONDUCTOR 47','66-45895', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(48, '6788567', 'NOMBRES CONDUCTOR 48', 'APELLIDOS CONDUCTOR 48', '6788567','DIRECCION CONDUCTOR 48','66-43365', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(49, '2342576', 'NOMBRES CONDUCTOR 49', 'APELLIDOS CONDUCTOR 49', '2342576','DIRECCION CONDUCTOR 49','66-36598', now(), now(), 1, 1);
+INSERT INTO conductores VALUES(50, '6518364', 'NOMBRES CONDUCTOR 50', 'APELLIDOS CONDUCTOR 50', '6518364','DIRECCION CONDUCTOR 50','66-42589', now(), now(), 1, 1);
+
+
+CREATE TABLE moviles_conductores(
+	id_movil_conductor INT NOT NULL AUTO_INCREMENT,
+	id_conductor INT NOT NULL,
+	id_movil INT NOT NULL,
+	fecha_inicio DATE NOT NULL,
+	hora_inicio TIME NOT NULL,
+	fecha_fin DATE NOT NULL,
+	hora_fin TIME NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_movil_conductor),
+	FOREIGN KEY(id_conductor) REFERENCES conductores(id_conductor),
+	FOREIGN KEY(id_movil) REFERENCES moviles(id_movil)
+)ENGINE=INNODB;
+/*INSERCIN DE DATOS*/
+INSERT INTO moviles_conductores VALUES(1, 1, 1, "2019-05-16", "10:50", "2019-06-16", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(2, 2, 2, "2019-05-17", "11:50", "2019-06-17", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(3, 3, 3, "2019-05-18", "12:50", "2019-06-18", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(4, 4, 4, "2019-05-19", "13:50", "2019-06-19", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(5, 5, 5, "2019-05-20", "14:50", "2019-06-20", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(6, 6, 6, "2019-05-21", "15:50", "2019-06-21", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(7, 7, 7, "2019-05-22", "16:50", "2019-06-22", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(8, 8, 8, "2019-05-23", "17:50", "2019-06-23", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(9, 9, 9, "2019-05-24", "18:50", "2019-06-24", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(10, 10, 10, "2019-05-25", "19:50", "2019-06-25", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(11, 11, 11, "2019-05-16", "20:50", "2019-06-26", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(12, 12, 12, "2019-05-17", "21:50", "2019-06-27", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(13, 13, 13, "2019-05-18", "22:50", "2019-06-28", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(14, 14, 14, "2019-05-19", "23:50", "2019-06-29", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(15, 15, 15, "2019-05-20", "04:50", "2019-06-30", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(16, 16, 16, "2019-05-21", "05:50", "2019-06-01", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(17, 17, 17, "2019-05-22", "06:50", "2019-06-02", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(18, 18, 18, "2019-05-23", "07:50", "2019-06-03", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(19, 19, 19, "2019-05-24", "08:50", "2019-06-04", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(20, 20, 20, "2019-05-25", "09:50", "2019-06-05", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(21, 21, 21, "2019-05-16", "20:50", "2019-06-26", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(22, 22, 22, "2019-05-17", "21:50", "2019-06-27", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(23, 23, 23, "2019-05-18", "22:50", "2019-06-28", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(24, 24, 24, "2019-05-19", "23:50", "2019-06-29", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(25, 25, 25, "2019-05-20", "04:50", "2019-06-30", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(26, 26, 26, "2019-05-21", "05:50", "2019-06-01", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(27, 27, 27, "2019-05-22", "06:50", "2019-06-02", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(28, 28, 28, "2019-05-23", "07:50", "2019-06-03", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(29, 29, 29, "2019-05-24", "08:50", "2019-06-04", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(30, 30, 30, "2019-05-25", "09:50", "2019-06-05", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(31, 31, 31, "2019-05-16", "20:50", "2019-06-26", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(32, 32, 32, "2019-05-17", "21:50", "2019-06-27", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(33, 33, 33, "2019-05-18", "22:50", "2019-06-28", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(34, 34, 34, "2019-05-19", "23:50", "2019-06-29", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(35, 35, 35, "2019-05-20", "04:50", "2019-06-30", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(36, 36, 36, "2019-05-21", "05:50", "2019-06-01", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(37, 37, 37, "2019-05-22", "06:50", "2019-06-02", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(38, 38, 38, "2019-05-23", "07:50", "2019-06-03", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(39, 39, 39, "2019-05-24", "08:50", "2019-06-04", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(40, 40, 40, "2019-05-25", "09:50", "2019-06-05", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(41, 41, 41, "2019-05-16", "20:50", "2019-06-26", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(42, 42, 42, "2019-05-17", "21:50", "2019-06-27", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(43, 43, 43, "2019-05-18", "22:50", "2019-06-28", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(44, 44, 44, "2019-05-19", "23:50", "2019-06-29", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(45, 45, 45, "2019-05-20", "04:50", "2019-06-30", "10:50", now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(46, 46, 46, "2019-05-21", "05:50", "2019-06-01", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(47, 47, 47, "2019-05-22", "06:50", "2019-06-02", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(48, 48, 48, "2019-05-23", "07:50", "2019-06-03", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(49, 49, 49, "2019-05-24", "08:50", "2019-06-04", "10:50",now(), now(), 1, 1);
+INSERT INTO moviles_conductores VALUES(50, 50, 50, "2019-05-25", "09:50", "2019-06-05", "10:50",now(), now(), 1, 1);
+
+CREATE TABLE contratos(
+	id_contrato INT NOT NULL AUTO_INCREMENT,
+	id_telefonista_operadora INT NOT NULL,
+	fecha_inicio DATE NOT NULL,
+	fecha_fin DATE NOT NULL,
+	salario FLOAT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_contrato),
+	FOREIGN KEY(id_telefonista_operadora) REFERENCES telefonistas_operadoras(id_telefonista_operadora)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO contratos VALUES(1, 1, "1980-04-13", "1981-04-13", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(2, 2, "1980-04-14", "1981-04-14", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(3, 3, "1980-04-15", "1981-04-15", 1800, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(4, 4, "1980-04-16", "1981-04-16", 1800, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(5, 5, "1980-04-17", "1981-04-17", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(6, 6, "1980-04-18", "1981-04-18", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(7, 7, "1980-04-19", "1981-04-19", 1800, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(8, 8, "1980-04-20", "1981-04-20", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(9, 9, "1980-04-21", "1981-04-21", 2200, now(), now(), 1, 1);
+INSERT INTO contratos VALUES(10, 10, "1980-04-22", "1981-04-22", 1800, now(), now(), 1, 1);
+
+CREATE TABLE funciones(
+	id_funcion INT NOT NULL AUTO_INCREMENT,
+	id_telefonista_operadora INT NOT NULL,
+	funcion VARCHAR(20),
+	fecha_inicio_fu DATE NOT NULL,
+	fecha_fin_fu DATE NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_funcion),
+	FOREIGN KEY(id_telefonista_operadora) REFERENCES telefonistas_operadoras(id_telefonista_operadora)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO funciones VALUES(1, 1, "OPERADORA","2018-11-01","2019-11-10", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(2, 2, "TELEFONISTA","2018-11-02","2019-11-11", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(3, 3, "OPERADORA","2018-11-03","2019-11-12", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(4, 4, "TELEFONISTA","2018-11-04","2019-11-13", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(5, 5, "OPERADORA","2018-11-05","2019-11-14", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(6, 6, "TELEFONISTA","2018-11-06","2019-11-15", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(7, 7, "OPERADORA","2018-11-07","2019-11-16", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(8, 8, "OPERADORA","2018-11-08","2019-11-17", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(9, 9, "TELEFONISTA","2018-11-09","2019-11-18", now(), now(), 1, 1);
+INSERT INTO funciones VALUES(10, 10, "TELEFONISTA","2018-11-10","2019-11-19", now(), now(), 1, 1);
+
+CREATE TABLE tipo_llamada(
+	id_tipo_llamada INT NOT NULL AUTO_INCREMENT,
+	descripcion VARCHAR (150),
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_tipo_llamada)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO tipo_llamada VALUES(1, "LLAMADA", now(), now(), 1, 1);
+INSERT INTO tipo_llamada VALUES(2, "SERVICIO", now(), now(), 1, 1);
+
+CREATE TABLE llamadas(
+	id_llamada INT NOT NULL AUTO_INCREMENT,
+	id_cliente INT NOT NULL,
+	id_tipo_llamada INT NOT NULL,
+	id_tipo_movil INT NOT NULL,
+	movil_asignado INT NOT NULL,
+	estado_llamada VARCHAR(15)NOT NULL,
+	observaciones VARCHAR(150) NOT NULL,
+	fec_insercion DATE DEFAULT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_llamada),
+	FOREIGN KEY(id_cliente) REFERENCES clientes(id_cliente),
+	FOREIGN KEY(id_tipo_llamada) REFERENCES tipo_llamada(id_tipo_llamada),
+	FOREIGN KEY(id_tipo_movil) REFERENCES tipos_moviles(id_tipo_movil)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO llamadas VALUES(1, 1, 1, 1, 1, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(2, 2, 2, 2, 1, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(3, 3, 1, 1, 1, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(4, 4, 2, 2, 1, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(5, 5, 1, 1, 2, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(6, 6, 2, 2, 2, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(7, 7, 1, 1, 2, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(8, 8, 2, 2, 2, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(9, 9, 1, 1, 3, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(10, 10, 2, 2, 3, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(11, 11, 1, 1, 3, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(12, 12, 2, 2, 3, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(13, 13, 1, 1, 4, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(14, 14, 2, 2, 4, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(15, 15, 1, 1, 4, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(16, 16, 2, 2, 4, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(17, 17, 1, 1, 5, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(18, 18, 2, 2, 5, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(19, 19, 1, 1, 5, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(20, 20, 2, 2, 5, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(21, 21, 1, 1, 6, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(22, 22, 2, 2, 6, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(23, 23, 1, 1, 6, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(24, 24, 2, 2, 6, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(25, 25, 1, 1, 7, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(26, 26, 2, 2, 7, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(27, 27, 1, 1, 7, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(28, 28, 2, 2, 7, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(29, 29, 1, 1, 8, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(30, 30, 2, 2, 8, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(31, 31, 1, 1, 8, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(32, 32, 2, 2, 8, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(33, 33, 1, 1, 9, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(34, 34, 2, 2, 9, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(35, 35, 1, 1, 9, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(36, 36, 2, 2, 9, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(37, 37, 1, 1, 10, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(38, 38, 2, 2, 10, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(39, 39, 1, 1, 10, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(40, 40, 2, 2, 10, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(41, 41, 1, 1, 11, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(42, 42, 2, 2, 11, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(43, 43, 1, 1, 11, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(44, 44, 2, 2, 11, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(45, 45, 1, 1, 12, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(46, 46, 2, 2, 12, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(47, 47, 1, 1, 12, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(48, 48, 2, 2, 12, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(49, 49, 1, 1, 13, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(50, 50, 2, 2, 13, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(51, 1, 1, 1, 13, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(52, 2, 2, 2, 13, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(53, 3, 1, 1, 14, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(54, 4, 2, 2, 14, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(55, 5, 1, 1, 14, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(56, 6, 2, 2, 14, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(57, 7, 1, 1, 15, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(58, 8, 2, 2, 15, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(59, 9, 1, 1, 15, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(60, 10, 2, 2, 15, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(61, 11, 1, 1, 16, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(62, 12, 2, 2, 16, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(63, 13, 1, 1, 16, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(64, 14, 2, 2, 16, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(65, 15, 1, 1, 17, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(66, 16, 2, 2, 17, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(67, 17, 1, 1, 17, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(68, 18, 2, 2, 17, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(69, 19, 1, 1, 18, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(70, 20, 2, 2, 18, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(71, 21, 1, 1, 18, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(72, 22, 2, 2, 18, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(73, 23, 1, 1, 19, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(74, 24, 2, 2, 19, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(75, 25, 1, 1, 19, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(76, 26, 2, 2, 19, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(77, 27, 1, 1, 20, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(78, 28, 2, 2, 20, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(79, 29, 1, 1, 20, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(80, 30, 2, 2, 20, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(81, 31, 1, 1, 21, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(82, 32, 2, 2, 21, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(83, 33, 1, 1, 21, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(84, 34, 2, 2, 21, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(85, 35, 1, 1, 22, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(86, 36, 2, 2, 22, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(87, 37, 1, 1, 22, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(88, 38, 2, 2, 22, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(89, 39, 1, 1, 23, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(90, 40, 2, 2, 23, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(91, 41, 1, 1, 23, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(92, 42, 2, 2, 23, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(93, 43, 1, 1, 24, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(94, 44, 2, 2, 24, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(95, 45, 1, 1, 24, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(96, 46, 2, 2, 24, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(97, 47, 1, 1, 25, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(98, 48, 2, 2, 25, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(99, 49, 1, 1, 25, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(100, 50, 2, 2, 25, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(101, 1, 1, 1, 26, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(102, 2, 2, 2, 26, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(103, 3, 1, 1, 26, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(104, 4, 2, 2, 26, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(105, 5, 1, 1, 27, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(106, 6, 2, 2, 27, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(107, 7, 1, 1, 27, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(108, 8, 2, 2, 27, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(109, 9, 1, 1, 28, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(110, 10, 2, 2, 28, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(111, 11, 1, 1, 28, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(112, 12, 2, 2, 28, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(113, 13, 1, 1, 29, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(114, 14, 2, 2, 29, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(115, 15, 1, 1, 29, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(116, 16, 2, 2, 29, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(117, 17, 1, 1, 30, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(118, 18, 2, 2, 30, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(119, 19, 1, 1, 30, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(120, 20, 2, 2, 30, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(121, 21, 1, 1, 31, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(122, 22, 2, 2, 31, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(123, 23, 1, 1, 31, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(124, 24, 2, 2, 31, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(125, 25, 1, 1, 32, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(126, 26, 2, 2, 32, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(127, 27, 1, 1, 32, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(128, 28, 2, 2, 32, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(129, 29, 1, 1, 33, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(130, 30, 2, 2, 33, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(131, 31, 1, 1, 33, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(132, 32, 2, 2, 33, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(133, 33, 1, 1, 34, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(134, 34, 2, 2, 34, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(135, 35, 1, 1, 34, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(136, 36, 2, 2, 34, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(137, 37, 1, 1, 35, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(138, 38, 2, 2, 35, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(139, 39, 1, 1, 35, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(140, 40, 2, 2, 35, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(141, 41, 1, 1, 36, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(142, 42, 2, 2, 36, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(143, 43, 1, 1, 36, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(144, 44, 2, 2, 36, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(145, 45, 1, 1, 37, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(146, 46, 2, 2, 37, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(147, 47, 1, 1, 37, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(148, 48, 2, 2, 37, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(149, 49, 1, 1, 38, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(150, 50, 2, 2, 38, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(151, 1, 1, 1, 38, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(152, 2, 2, 2, 38, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(153, 3, 1, 1, 39, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(154, 4, 2, 2, 39, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(155, 5, 1, 1, 49, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(156, 6, 2, 2, 49, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(157, 7, 1, 1, 40, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(158, 8, 2, 2, 40, "DESPACHADA", "1 COCA 2 LTS Y 1 BRANCA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(159, 9, 1, 1, 40, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(160, 10, 2, 2, 40, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(161, 11, 1, 1, 41, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(162, 12, 2, 2, 41, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(163, 13, 1, 1, 41, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(164, 14, 2, 2, 41, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(165, 15, 1, 1, 42, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(166, 16, 2, 2, 42, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(167, 17, 1, 1, 42, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(168, 18, 2, 2, 42, "DESPACHADA", "10 BS DE COCA MACHUCADA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(169, 19, 1, 1, 43, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(170, 20, 2, 2, 43, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(171, 21, 1, 1, 43, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(172, 22, 2, 2, 43, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(173, 23, 1, 1, 44, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(174, 24, 2, 2, 44, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(175, 25, 1, 1, 44, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(176, 26, 2, 2, 44, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(177, 27, 1, 1, 45, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(178, 28, 2, 2, 45, "DESPACHADA", "10 COMP DE PARACETAMOL", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(179, 29, 1, 1, 45, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(180, 30, 2, 2, 45, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(181, 31, 1, 1, 46, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(182, 32, 2, 2, 46, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(183, 33, 1, 1, 46, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(184, 34, 2, 2, 46, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(185, 35, 1, 1, 47, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(186, 36, 2, 2, 47, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(187, 37, 1, 1, 47, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(188, 38, 2, 2, 47, "DESPACHADA", "2 KG DE TOMATE", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(189, 39, 1, 1, 48, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(190, 40, 2, 2, 48, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(191, 41, 1, 1, 48, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(192, 42, 2, 2, 48, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(193, 43, 1, 1, 49, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(194, 44, 2, 2, 49, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(195, 45, 1, 1, 49, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(196, 46, 2, 2, 49, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(197, 47, 1, 1, 50, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(198, 48, 2, 2, 50, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(199, 49, 1, 1, 50, "DESPACHADA", "NINGUNA", now(), now(), 1, 1);
+INSERT INTO llamadas VALUES(200, 50, 2, 2, 50, "DESPACHADA", "24 PLATOS DESECHABLES", now(), now(), 1, 1);
+
+CREATE TABLE moviles_carreras(
+	id_movil_carrera INT NOT NULL AUTO_INCREMENT,
+	id_llamada INT NOT NULL,
+	id_movil INT NOT NULL,
+	id_telefonista_operadora INT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_movil_carrera),
+	FOREIGN KEY(id_llamada) REFERENCES llamadas(id_llamada),
+	FOREIGN KEY(id_movil) REFERENCES moviles(id_movil),
+	FOREIGN KEY(id_telefonista_operadora) REFERENCES telefonistas_operadoras(id_telefonista_operadora)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+--  INSERT INTO moviles_carreras VALUES(1, 1, 1, 1, now(), now(), 1, 2);
+--  INSERT INTO moviles_carreras VALUES(2, 2, 2, 2, now(), now(), 1, 2);
+--  INSERT INTO moviles_carreras VALUES(3, 3, 3, 3, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(4, 4, 4, 4, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(5, 5, 5, 5, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(6, 6, 6, 6, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(7, 7, 7, 7, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(8, 8, 8, 8, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(9, 9, 9, 9, now(), now(), 1, 1);
+--  INSERT INTO moviles_carreras VALUES(10, 10, 10, 10, now(), now(), 1, 1);
+
+/* ----------------------------CREACION DE LAS TABLAS DE SEGURIDAD-----------------------*/
+
+CREATE TABLE personas(
+	id_persona INT NOT NULL AUTO_INCREMENT,
+	id_empresa INT NOT NULL,
+	direccion VARCHAR(50) NOT NULL,
+	telefono VARCHAR(20) NOT NULL,
+	ci VARCHAR(15) NOT NULL,
+	nombres VARCHAR(25) NOT NULL,
+	ap VARCHAR(25) NOT NULL,
+	am VARCHAR(25) NOT NULL,
+	genero VARCHAR(15) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_persona),
+	FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO personas VALUES(1, 1, 'LAS ROSAS 1158', '78249575', '5049766 TJA', 'ROLANDO CESAR', 'VASQUEZ', 'TAVERA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(2, 1, 'LITORAL 0211', '75127501', '5047185 TJA', 'ROSA LINDA', 'DE LA VEGA', 'PEREZ', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(3, 1, 'PSJE BALDIVIEZO 0589', '71869852', '5048725 TJA', 'ROGER JULIO', 'OROZCO', 'TERAN', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(4, 1, 'FLORIDA', '78365984', '6458935 TJA', 'PEDRO EDGAR', 'ROMERO', 'UGARTE', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(5, 1, 'SAN BERNARDO', '72458369', '1234789 TJA', 'LUIS JUANA', 'CARRASCO', 'JURADO', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(6, 1, 'SAN LUIS', '79781455', '3478918 TJA', 'PABLO SERGIO', 'PEDRAZA', 'GUERRERO', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(7, 1, 'LAS PANOSAS', '68972544', '2457836 TJA', 'JULIO MIGUEL', 'CONTRERAS', 'SILVERA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(8, 1, 'JUAN XXIII', '73445588', '6658992 TJA', 'CLAUDIA SILVIA', 'CORO', 'SUAREZ', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(9, 1, 'MIRAFLORES', '73366897', '9782548 TJA', 'PEDRO JUAN', 'OROZCO', 'VERA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(10, 1, 'AEROPUERTO', '75547366', '5483795 TJA', 'LUIS JUAN', 'RIVERA', 'MENDOZA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(11, 1, 'SENAC', '73366488', '2458936 TJA', 'MARTHA JUANA', 'SERRUDO', 'ALMEIRA', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(12, 1, 'ANDALUCIA', '73644589', '7896485 TJA', 'ARNOLD JUAN', 'PEREIRA', 'OSORIO', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(13, 1, 'ANDALUZ', '71236689', '4586958 TJA', 'MIGUEL OSCAR', 'VELASQUEZ', 'SILVA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(14, 1, 'CATEDRAL', '73366945', '1254896 TJA', 'MERY ROSA', 'CABRERA', 'RUIZ', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(15, 1, 'EL MOLINO', '72345898', '1278936 TJA', 'ERNESTO SERGIO', 'VILLA', 'VEGA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(16, 1, 'TOMATITAS', '65894315', '2558836 TJA', 'RENE GUSTAVO', 'VISCARRA', 'VERAMENDI', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(17, 1, 'SAN JORGE', '64587925', '3215896 TJA', 'MERCEDES PALMIRA', 'VEGA', 'VEGA', 'F', now(), now(), 1, 1);
+INSERT INTO personas VALUES(18, 1, 'TORRECILLAS', '79873645', '5225489 TJA', 'ERNESTO SERGIO', 'ARENAS', 'SEVILLA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(19, 1, 'LA MERCED', '73245896', '8523647 TJA', 'ARMANDO PABLO', 'MARQUEZ', 'SILVA', 'M', now(), now(), 1, 1);
+INSERT INTO personas VALUES(20, 1, 'SAN JOSE', '77589348', '5896478 TJA', 'ROMINA CLAUDIA', 'FARFAN', 'ROMERO', 'F', now(), now(), 1, 1);
+
+CREATE TABLE usuarios(
+	id_usuario INT NOT NULL AUTO_INCREMENT,
+	id_persona INT NOT NULL,
+	usuario1 VARCHAR(20)NOT NULL,
+	clave VARCHAR(100) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_usuario),
+	FOREIGN KEY(id_persona) REFERENCES personas(id_persona)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO usuarios VALUES(1, 1, 'ADMIN', '123', now(), now(), 1, 1);
+INSERT INTO usuarios VALUES(2, 2, 'SECRE', '123', now(), now(), 1, 1);
+INSERT INTO usuarios VALUES(3, 3, 'DIREC', '123', now(), now(), 1, 1);
+INSERT INTO usuarios VALUES(4, 4, 'TELEF', '123', now(), now(), 1, 1);
+INSERT INTO usuarios VALUES(5, 5, 'OPERA', '123', now(), now(), 1, 1);
+
+CREATE TABLE roles(
+	id_rol INT NOT NULL AUTO_INCREMENT,
+	rol VARCHAR(30) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_rol)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO roles VALUES(1, 'ADMINISTRADOR', now(), now(), 1, 1);
+INSERT INTO roles VALUES(2, 'SECRETARIA', now(), now(), 1, 1);
+INSERT INTO roles VALUES(3, 'DIRECTIVO', now(), now(), 1, 1);
+INSERT INTO roles VALUES(4, 'TELEFONISTA', now(), now(), 1, 1);
+INSERT INTO roles VALUES(5, 'OPERADORA', now(), now(), 1, 1);
+
+CREATE TABLE usuarios_roles(
+	id_usuario_rol INT NOT NULL AUTO_INCREMENT,
+	id_rol INT NOT NULL,
+	id_usuario INT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_usuario_rol),
+	FOREIGN KEY(id_rol) REFERENCES roles(id_rol),
+	FOREIGN KEY(id_usuario) REFERENCES usuarios(id_usuario)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO usuarios_roles VALUES(1, 1, 1, now(), now(), 1, 1);
+INSERT INTO usuarios_roles VALUES(2, 2, 2, now(), now(), 1, 1);
+INSERT INTO usuarios_roles VALUES(3, 3, 3, now(), now(), 1, 1);
+INSERT INTO usuarios_roles VALUES(4, 4, 4, now(), now(), 1, 1);
+INSERT INTO usuarios_roles VALUES(5, 5, 5, now(), now(), 1, 1);
+
+CREATE TABLE grupos(
+	id_grupo INT NOT NULL AUTO_INCREMENT,
+	grupo VARCHAR(20) NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_grupo)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO grupos VALUES(1, 'HERRAMIENTAS', now(), now(), 1, 1);
+INSERT INTO grupos VALUES(2, 'PARAMETROS', now(), now(), 1, 1);
+INSERT INTO grupos VALUES(3, 'MOVIL ANDALUZ', now(), now(), 1, 1);
+INSERT INTO grupos VALUES(4, 'REPORTES', now(), now(), 1, 1);
+
+CREATE TABLE opciones(
+	id_opcion INT NOT NULL AUTO_INCREMENT,
+	id_grupo INT NOT NULL,
+	opcion VARCHAR(40) NOT NULL,
+	contenido VARCHAR(200) NOT NULL,
+	orden INT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY(id_opcion),
+	FOREIGN KEY(id_grupo) REFERENCES grupos(id_grupo)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+INSERT INTO opciones VALUES(1, 1, 'Personas', '../privada/personas/personas.php', 10, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(2, 1, 'Usuarios', '../privada/usuarios/usuarios.php', 20, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(3, 1, 'Roles', '../privada/pag_construccion/pag_construccion.php', 30, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(4, 1, 'Usuarios_Roles', '../privada/pag_construccion/pag_construccion.php', 40, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(5, 1, 'Grupos', '../privada/pag_construccion/pag_construccion.php', 50, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(6, 1, 'Opciones', '../privada/pag_construccion/pag_construccion.php', 60, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(7, 1, 'Accesos', '../privada/pag_construccion/pag_construccion.php', 70, now(), now(), 1, 1);
+
+INSERT INTO opciones VALUES(8, 2, 'Tipos Moviles', '../privada/tipos_moviles/tipos_moviles.php', 10, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(9, 2, 'Telefonistas Operadoras', '../privada/telefonistas_operadoras/telefonistas_operadoras.php', 20, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(10, 2, 'Turnos', '../privada/turnos/turnos.php', 30, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(11, 2, 'Funciones', '../privada/funciones/funciones.php', 40, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(12, 2, 'Tipo Llamada', '../privada/tipo_llamada/tipo_llamada.php', 50, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(13, 2, 'Tarifario Servicios', '../privada/tarif_servicios/tarif_servicios.php', 60, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(14, 2, 'Zonas', '../privada/zonas/zonas.php', 70, now(), now(), 1, 1);
+
+INSERT INTO opciones VALUES(29, 3, 'Empresa', '../privada/empresa/empresa.php', 5, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(15, 3, 'Socios', '../privada/socios/socios.php', 10, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(16, 3, 'Clientes', '../privada/clientes/clientes.php', 20, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(17, 3, 'Moviles', '../privada/moviles/moviles.php', 30, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(18, 3, 'Moviles Conductores', '../privada/moviles_conductores/moviles_conductores.php', 40, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(19, 3, 'Conductores', '../privada/conductores/conductores.php', 50, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(20, 3, 'Moviles Carreras', '../privada/moviles_carreras/moviles_carreras.php', 60, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(21, 3, 'Contratos', '../privada/contratos/contratos.php', 70, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(22, 3, 'Llamadas', '../privada/llamadas/llamadas.php', 80, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(23, 3, 'Tarifario Urbano', '../privada/tarif_urbano/tarif_urbano.php', 90, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(24, 3, 'Tarifario Rural', '../privada/tarif_rural/tarif_rural.php', 100, now(), now(), 1, 1);
+
+INSERT INTO opciones VALUES(25, 4, 'Telefonistas-Operadoras', '../privada/rpt_telefonistas_operadoras/rpt_telefonistas_operadoras.php', 10, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(26, 4, 'Clientes-Llamadas', '../privada/rpt_clientes_llamadas/rpt_clientes_llamadas.php', 20, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(27, 4, 'Socios-Moviles-Conductores', '../privada/rpt_socios_moviles_conductores/rpt_socios_moviles_conductores.php', 30, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(28, 4, 'Personas x Genero', '../privada/rpt_personas_genero/rpt_personas_genero.php', 40, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(30, 4, 'Llamadas x Fecha y Tipo', '../privada/rpt_llamadas_fecha_tipo/rpt_llamadas_fecha_tipo.php', 50, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(31, 4, 'Moviles x Tipo', '../privada/rpt_moviles_tipo/rpt_moviles_tipo.php', 60, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(32, 4, 'Ficha Tecnica de Personas', '../privada/ficha_tecnica_de_personas/fichas_tec_personas.php', 70, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(33, 4, 'Ficha Tecnica Moviles-Conductores', '../privada/ficha_tecnica_movil_conductor/fichas_tec_moviles_conductores.php', 80, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(34, 4, 'Llamadas x Movil', '../privada/rpt_llamadas_movil/rpt_llamadas_movil.php', 90, now(), now(), 1, 1);
+INSERT INTO opciones VALUES(35, 4, 'Llamadas Canceladas', '../privada/rpt_llamadas_canceladas/rpt_llamadas_canceladas.php', 100, now(), now(), 1, 1);
+
+CREATE TABLE accesos(
+	id_acceso INT NOT NULL AUTO_INCREMENT,
+	id_opcion INT NOT NULL,
+	id_rol INT NOT NULL,
+	fec_insercion TIMESTAMP NOT NULL,
+	fec_modificacion TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	usuario INT NOT NULL,
+	estado CHAR(1) NOT NULL,
+	PRIMARY KEY (id_acceso),
+	FOREIGN KEY(id_opcion) REFERENCES opciones(id_opcion),
+	FOREIGN KEY(id_rol) REFERENCES roles(id_rol)
+)ENGINE=INNODB;
+/*INSERCION DE DATOS*/
+/*ADMINISTRADOR*/
+INSERT INTO accesos VALUES(1, 1, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(2, 2, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(3, 3, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(4, 4, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(5, 5, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(6, 6, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(7, 7, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(8, 8, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(9, 9, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(10, 10, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(11, 11, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(12, 12, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(13, 13, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(14, 14, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(15, 15, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(16, 16, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(17, 17, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(18, 18, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(19, 19, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(20, 20, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(21, 21, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(22, 22, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(23, 23, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(24, 24, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(25, 25, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(26, 26, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(27, 27, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(28, 28, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(29, 29, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(30, 30, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(31, 31, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(32, 32, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(33, 33, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(34, 34, 1, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(79, 35, 1, now(), now(), 1, 1);
+
+/*SECRETARIA*/
+INSERT INTO accesos VALUES(35, 8, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(36, 9, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(37, 10, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(38, 11, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(39, 15, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(40, 17, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(41, 19, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(42, 21, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(43, 25, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(44, 28, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(45, 31, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(46, 32, 2, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(47, 33, 2, now(), now(), 1, 1);
+
+/*DIRECTIVO*/
+INSERT INTO accesos VALUES(48, 25, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(49, 26, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(50, 27, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(51, 28, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(52, 30, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(53, 31, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(54, 32, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(55, 33, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(56, 34, 3, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(80, 35, 3, now(), now(), 1, 1);
+
+/*TELEFONISTA*/
+INSERT INTO accesos VALUES(57, 12, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(58, 13, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(59, 14, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(60, 16, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(61, 22, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(62, 23, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(63, 24, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(64, 26, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(65, 30, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(66, 33, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(67, 34, 4, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(81, 35, 4, now(), now(), 1, 1);
+
+/*OPERADORA*/
+INSERT INTO accesos VALUES(68, 12, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(69, 13, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(70, 14, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(71, 16, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(72, 22, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(73, 23, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(74, 24, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(75, 26, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(76, 30, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(77, 33, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(78, 34, 5, now(), now(), 1, 1);
+INSERT INTO accesos VALUES(82, 35, 5, now(), now(), 1, 1);
